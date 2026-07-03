@@ -103,7 +103,7 @@ const App: React.FC = () => {
           </p>
           <div className="mt-8 pt-8 border-t border-slate-50 flex flex-col sm:flex-row justify-between items-center gap-4">
             <p className="text-slate-400 text-xs">
-              &copy; {new Date().getFullYear()} EDUFORM Global. All rights reserved.
+              &copy; {new Date().getFullYear()} Form. All rights reserved.
             </p>
             <div className="flex gap-6">
               <a href="#" className="text-xs text-slate-400 hover:text-slate-600 transition-colors">Privacy Policy</a>
