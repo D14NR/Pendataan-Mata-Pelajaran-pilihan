@@ -69,7 +69,7 @@ const App: React.FC = () => {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
             </span>
-            <span className="text-[11px] font-bold text-blue-700 uppercase tracking-wider">Tahun Ajaran 2025/2026</span>
+            <span className="text-[11px] font-bold text-blue-700 uppercase tracking-wider">Tahun Ajaran 2026/2027</span>
           </div>
           <h1 className="text-4xl sm:text-6xl font-black text-slate-900 mb-6 tracking-tight leading-[1.1]">
             Pilih <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Masa Depanmu</span> Sekarang.
