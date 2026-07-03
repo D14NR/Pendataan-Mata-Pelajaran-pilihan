@@ -13,8 +13,8 @@ const JENJANG_OPTIONS: Jenjang[] = [
 ];
 
 const MATA_PELAJARAN_MAP: Record<string, string[]> = {
-  'SD': ['Matematika', 'IPA', 'Bahasa Inggris', 'Seni Budaya', 'PJOK', 'Bahasa Indonesia'],
-  'SMP': ['Matematika', 'IPA (Fisika/Biologi)', 'IPS', 'Bahasa Inggris', 'Informatika', 'Bahasa Indonesia'],
+  'SD': ['Matematika', 'IPA', 'Bahasa Inggris', 'Bahasa Indonesia'],
+  'SMP': ['Matematika', 'IPA (Fisika/Biologi)', 'IPS', 'Bahasa Inggris', 'Bahasa Indonesia'],
   'SMA': [
     'MATEMATIKA TINGKAT LANJUT',
     'FISIKA',
