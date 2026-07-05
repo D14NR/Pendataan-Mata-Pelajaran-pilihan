@@ -22,10 +22,81 @@ function doPost(e) {
   
   if (!sheet) {
     sheet = ss.insertSheet(sheetName);
-    sheet.appendRow(['Timestamp', 'Nama Siswa', 'Asal Sekolah', 'Jenjang', 'Fokus KBM', 'Mata Pelajaran']);
+    sheet.appendRow([
+      'Timestamp',
+      'Nama',
+      'Asal Sekolah',
+      'Jenjang',
+      'Fokus KBM',
+      'MATEMATIKA',
+      'BAHASA INDONESIA',
+      'BAHASA INGGRIS',
+      'MATEMATIKA TINGKAT LANJUT',
+      'FISIKA',
+      'KIMIA',
+      'BIOLOGI',
+      'EKONOMI',
+      'SOSIOLOGI',
+      'GEOGRAFI',
+      'SEJARAH',
+      'BAHASA INDONESIA TINGKAT LANJUT',
+      'BAHASA INGGRIS TINGKAT LANJUT',
+      'ANTROPOLOGI',
+      'PENDIDIKAN PANCASILA & KEWARGANEGARAAN',
+      'IPS'
+    ]);
   }
   
   var data = JSON.parse(e.postData.contents);
+  var subjectColumns = [
+    'MATEMATIKA',
+    'BAHASA INDONESIA',
+    'BAHASA INGGRIS',
+    'MATEMATIKA TINGKAT LANJUT',
+    'FISIKA',
+    'KIMIA',
+    'BIOLOGI',
+    'EKONOMI',
+    'SOSIOLOGI',
+    'GEOGRAFI',
+    'SEJARAH',
+    'BAHASA INDONESIA TINGKAT LANJUT',
+    'BAHASA INGGRIS TINGKAT LANJUT',
+    'ANTROPOLOGI',
+    'PENDIDIKAN PANCASILA & KEWARGANEGARAAN',
+    'IPS'
+  ];
+  
+  var normalizedSubjects = {};
+  (data.mataPelajaran || []).forEach(function(subject) {
+    var normalized = subject.toString().trim().toUpperCase();
+    if (normalized === 'IPA (FISIKA/BIOLOGI)' || normalized === 'IPA') {
+      normalizedSubjects['FISIKA'] = true;
+      normalizedSubjects['BIOLOGI'] = true;
+      return;
+    }
+    if (normalized === 'BAHASA INDONESIA') {
+      normalizedSubjects['BAHASA INDONESIA'] = true;
+      return;
+    }
+    if (normalized === 'BAHASA INGGRIS') {
+      normalizedSubjects['BAHASA INGGRIS'] = true;
+      return;
+    }
+    if (normalized === 'MATEMATIKA') {
+      normalizedSubjects['MATEMATIKA'] = true;
+      return;
+    }
+    if (normalized === 'IPS') {
+      normalizedSubjects['IPS'] = true;
+      return;
+    }
+    normalizedSubjects[normalized] = true;
+  });
+  
+  var selectedSubjects = subjectColumns.map(function(subject) {
+    return normalizedSubjects[subject] ? 'TRUE' : '';
+  });
   
   sheet.appendRow([
     new Date(),
@@ -33,7 +104,7 @@ function doPost(e) {
     data.asalSekolah,
     data.jenjang,
     data.fokusKBM || '-',
-    data.mataPelajaran.join(', ')
+    ...selectedSubjects
   ]);
   
   return ContentService.createTextOutput(JSON.stringify({ 'result': 'success' }))
