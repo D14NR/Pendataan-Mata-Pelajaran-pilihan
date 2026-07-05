@@ -72,7 +72,7 @@ const App: React.FC = () => {
             <span className="text-[11px] font-bold text-blue-700 uppercase tracking-wider">Tahun Ajaran 2026/2027</span>
           </div>
           <h1 className="text-4xl sm:text-6xl font-black text-slate-900 mb-6 tracking-tight leading-[1.1]">
-            Pilih <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Masa Depanmu</span> Sekarang.
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">PENDATAAN MATA PELAJARAN PILIHAN</span>
           </h1>
           <p className="text-lg text-slate-500 leading-relaxed max-w-2xl mx-auto">
             Pendataan mata pelajaran pilihan terintegrasi. Pastikan pilihanmu sesuai dengan minat dan rencana karirmu di masa depan.
